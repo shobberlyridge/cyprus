@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+
+<html>
+    <head>
+        <title>
+            ToDo - 
+            {% block title_block %}
+                Morning Prayers
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+        <div>
+            {% block body_block %}
+            {% endblock %}
+        </div>
+        
+                <hr />
+       <ul>
+            <li><a href="{% url 'index' %}">Index</a></li>
+        </ul>
+        
+        </body>
+</html>

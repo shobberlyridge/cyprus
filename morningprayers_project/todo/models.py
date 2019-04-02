@@ -9,7 +9,7 @@ class Todo(models.Model):
 	target_completion_date = models.DateField(blank=True, null=True)
 	start_date = models.DateField(blank=True, null=True)
 	completed = models.BooleanField(default = False)
-	
+	completed_date = models.DateField(blank=True, null=True)
 	
 	def __str__(self):
 		return self.title
