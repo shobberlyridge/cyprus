@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-
 {% load staticfiles %}
-
-
 <html>
     <head>
         <title>
-            ToDo - 
-            {% block title_block %}
-                Morning Prayers
-            {% endblock %}
-        </title>
+            ToDos - 
+         </title>
     </head>
     <body>
+		<hr />
         <div>
             {% block body_block %}
             {% endblock %}
         </div>
         
                 <hr />
-       <ul>
-            <li><a href="{% url 'index' %}">Index</a></li>
+                <hr />
+		<ul>
+            <li><a href="{% url 'index' %}">To Do List</a></li>
         </ul>
         
         </body>

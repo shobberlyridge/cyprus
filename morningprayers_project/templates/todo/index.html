@@ -1,6 +1,5 @@
-<!--
-
 {% extends 'todo/base.html' %}
+
 {% load staticfiles %}
 
 {% block title_block %}
@@ -8,56 +7,23 @@
 
 {% block body_block %}
 <h1
-	{% if user.is_authenticated %}
-        howdy {{ user.username }}!
-    {% else %}
-        hey there partner!
-    {% endif %}
 	<div>
-		<h3>Most Liked Categories</h3>	
+		<h3>Recently Added:</h3>	
 	</div>
 
 	<div>
-	{% if categories %}
+	{% if todos %}
 	<ul>
-		{% for category in categories %}
+		{% for title in todos %}
 			<li>
-			<a href="{% url 'show_category' category.slug %}">{{ category.name }}</a>
+				{{ title.title }}
+				{{ title.completed_date }}
 			</li>
 		{% endfor %}
 	</ul>
 	{% else %}
-		<strong>There are no categories present.</strong>
+		<strong>There are no todos present.</strong>
 	{% endif %}
 	</div>
-	<div>
-		<h3>Most Viewed Pages</h3>	
-	</div>
-	
-	<div>
-	{% if pages %}
-	<ul>
-		{% for page in pages %}
-			<li>
-			<a href={{ page.url }}</a>
-			<a href="{{ page.url }}">{{ page.title }}</a>
-			</li>
-		{% endfor %}
-	</ul>
-	{% else %}
-		<strong>There are no pages present.</strong>
-	{% endif %}
-	</div>
-    	
-		<img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
-	</div>
-
-    
     
 	{% endblock %}
-
-
-Or you can
-comment out
-a large number of lines.
--->

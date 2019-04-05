@@ -19,3 +19,7 @@ def index(request):
 	#visitor_cookie_handler(request, response)
 	# Return response back to the user, updating any cookies that need changed.
 	return response
+
+def show_todo(request):
+	output = "Show todo request"
+	return HttpResponse(output)

@@ -3,4 +3,8 @@ from .models import Todo
 
 # Register your models here.
 
-admin.site.register(Todo)
+class TodoAdmin(admin.ModelAdmin):
+	list_display = ['id', 'title', 'description', 'creation_date', 'completed']
+
+
+admin.site.register(Todo, TodoAdmin)
