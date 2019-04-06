@@ -5,6 +5,8 @@ from .models import Todo
 
 class TodoAdmin(admin.ModelAdmin):
 	list_display = ['id', 'title', 'description', 'creation_date', 'completed']
+	readonly_fields=('slug',)
+
 
 
 admin.site.register(Todo, TodoAdmin)

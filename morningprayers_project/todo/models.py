@@ -1,6 +1,5 @@
 from django.db import models
-
-# Create your models here.
+from autoslug import AutoSlugField
 
 class Todo(models.Model):
 	title = models.CharField(max_length=25)
@@ -10,6 +9,8 @@ class Todo(models.Model):
 	start_date = models.DateField(blank=True, null=True)
 	completed = models.BooleanField(default = False)
 	completed_date = models.DateField(blank=True, null=True)
+	slug = AutoSlugField(populate_from='title', unique = True)
+
 	
 	def __str__(self):
 		return self.title
