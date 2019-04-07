@@ -20,6 +20,6 @@ def index(request):
 	# Return response back to the user, updating any cookies that need changed.
 	return response
 
-def show_todo(request):
-	output = "Show todo request"
-	return HttpResponse(output)
+def show_todo(request, slug):
+	#output = "Show todo request"
+	return HttpResponse("Item %s." % slug)
