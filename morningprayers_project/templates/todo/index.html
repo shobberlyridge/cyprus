@@ -16,8 +16,12 @@
 	<ul>
 		{% for title in todos %}
 			<li>
-				{{ title.title }}
-				{{ title.completed_date }}
+				<p>
+					<a href="/todo/todo/{{title.slug }}"> {{title.title }} </a>
+					
+					by	
+				{{ title.target_completion_date }}
+							</p>
 			</li>
 		{% endfor %}
 	</ul>
