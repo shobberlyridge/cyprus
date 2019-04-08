@@ -1,0 +1,27 @@
+{% extends 'todo/base.html' %}
+
+{% load staticfiles %}
+
+{% block title_block %}
+	{% endblock %}
+
+{% block body_block %}
+<h1
+	<div>
+		<h3>Todo item:</h3>	
+	</div>
+
+	<div>
+	{% if todo_item %}
+	<p>{{ todo_item.title }} - 
+		{{ todo_item.description }} </p>
+	<p>Created:	{{ todo_item.creation_date }}</p>
+	<p>Target Completion Date:	{{todo_item.target_completion_date }}</p>
+	<p>Start Date:	{{ todo_item.start_date }}</p>
+	<p>Completed Date: {{ todo_item.completed_date }} </p>
+	{% else %}
+		<strong>There are no todos present.</strong>
+	{% endif %}
+	</div>
+    
+	{% endblock %}

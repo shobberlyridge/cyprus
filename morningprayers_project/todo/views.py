@@ -22,4 +22,9 @@ def index(request):
 
 def show_todo(request, slug):
 	#output = "Show todo request"
-	return HttpResponse("Item %s." % slug)
+	#return HttpResponse("Item %s." % slug)
+	todo_item = Todo.objects.get(slug = slug)
+	context_dict = {'todo_item': todo_item}
+	response = render(request,  'todo/show_todo.html', context_dict)
+	#return HttpResponse("Item %s." % slug)
+	return response
