@@ -5,7 +5,7 @@ from .models import Todo
 
 class TodoAdmin(admin.ModelAdmin):
 	list_display = ['id', 'title', 'description', 'creation_date', 'completed']
-	readonly_fields=('slug',)
+	readonly_fields=('slug', 'creation_date', )
 
 
 
