@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+{% load i18n %}
+	<head>
+		<title>To Do Item</title>
+	</head>
+
+	<body>
+		<h1>Add a Todo Item</h1>
+		<div>
+			{% load i18n %}
+			<form id="todoform" method="post" action="/todo/add_todo">
+				{% csrf_token %}
+				{% for hidden in form.hidden_fields %}
+					{{ hidden }}
+				{% endfor %}
+				<hr>
+				{% for field in form.visible_fields %}
+					{{ field.errors }}
+					{{ field.help_text }}
+					{{ field }}
+				{% endfor %}
+				<input type="submit" name="submit" value="Create Todo Item" />
+			</form>
+		</div>
+	</body>
+</html>

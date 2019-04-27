@@ -4,7 +4,7 @@ from autoslug import AutoSlugField
 class Todo(models.Model):
 	title = models.CharField(max_length=25)
 	description = models.CharField(max_length=100)
-	creation_date = models.DateField()
+	creation_date = models.DateField(auto_now_add=True)
 	target_completion_date = models.DateField(blank=True, null=True)
 	start_date = models.DateField(blank=True, null=True)
 	completed = models.BooleanField(default = False)
