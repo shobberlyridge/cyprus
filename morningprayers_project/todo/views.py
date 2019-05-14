@@ -14,7 +14,7 @@ from autoslug import AutoSlugField
 
 
 def index(request):
-	latest_todo_list = Todo.objects.order_by('creation_date')[:20]
+	latest_todo_list = Todo.objects.order_by('creation_date')[:25]
 	context_dict = {'todos': latest_todo_list}
 	response = render(request, 'todo/index.html', context_dict)
 	# Call function to handle the cookies
@@ -40,6 +40,7 @@ def add_todo(request):
 		form = TodoForm(request.POST)
 		# Have we been provided with a valid form?
 		if form.is_valid():
+			print(form.is_valid())
 			# Save the new item to the database.
 			form.save(commit=True)
 			print("balh")

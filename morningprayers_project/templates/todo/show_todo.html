@@ -15,10 +15,10 @@
 	{% if todo_item %}
 	<p>{{ todo_item.title }} - 
 		{{ todo_item.description }} </p>
-	<p>Created:	{{ todo_item.creation_date }}</p>
-	<p>Target Completion Date:	{{todo_item.target_completion_date }}</p>
-	<p>Start Date:	{{ todo_item.start_date }}</p>
-	<p>Completed Date: {{ todo_item.completed_date }} </p>
+	<p>Created:&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; {{ todo_item.creation_date }}</p>
+	<p>Target Completion Date:&emsp; {{todo_item.target_completion_date }}</p>
+	<p>Start Date:&emsp; &emsp; &emsp; &emsp;&emsp; &emsp;{{ todo_item.start_date }}</p>
+	<p>Completed Date:&emsp; &emsp; &emsp; &emsp;{{ todo_item.completed_date }} </p>
 	{% else %}
 		<strong>There are no todos present.</strong>
 	{% endif %}
