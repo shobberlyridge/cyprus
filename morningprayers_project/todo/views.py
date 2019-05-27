@@ -14,7 +14,7 @@ from autoslug import AutoSlugField
 
 
 def index(request):
-	latest_todo_list = Todo.objects.order_by('creation_date')[:25]
+	latest_todo_list = Todo.objects.order_by('-creation_date')[:25]
 	context_dict = {'todos': latest_todo_list}
 	response = render(request, 'todo/index.html', context_dict)
 	# Call function to handle the cookies
