@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Todo
-from todo.forms import TodoForm
+from todo.forms import TodoForm, ModifyTodoForm
 from autoslug import AutoSlugField
 
 
@@ -56,3 +56,29 @@ def add_todo(request):
 			# Will handle the bad form, new form, or no form supplied cases.
 		# Render the form with error messages (if any).
 	return render(request, 'todo/add_todo.html', {'form': form})
+
+
+def modify_todo(request, slug):
+	instance = Todo.objects.get(slug=slug)
+	form = ModifyTodoForm(instance = instance)
+	if request.method == 'POST':
+		print("Post")
+		form = ModifyTodoForm(request.POST, instance = instance)
+		# Have we been provided with a valid form?
+		if form.is_valid():
+			print(form.is_valid())
+			# Save the new item to the database.
+			form.save(commit=True)
+			print("balh")
+			# Now that the category is saved
+			# We could give a confirmation message
+			# But since the most recent category added is on the index page
+			# Then we can direct the user back to the index page.
+			return index(request)
+		else:
+			# The supplied form contained errors -
+			# just print them to the terminal.
+			print(form.errors)
+			# Will handle the bad form, new form, or no form supplied cases.
+		# Render the form with error messages (if any).
+	return render(request, 'todo/modify_todo.html', {'form': form})
